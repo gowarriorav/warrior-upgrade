@@ -3,34 +3,313 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Warrior AV</title>
-  <meta name="description" content="Warrior AV — Premium Audio & Video Experts" />
+  <title>Upgrade Your Space | Warrior AV</title>
+  <meta name="description" content="Premium audio & video installation with clean finishes, invisible wire management, and precise mounting. Serving Wayland and surrounding towns." />
   <meta name="theme-color" content="#0b0b0b" />
   <style>
-    :root{--bg:#0b0b0b;--text:#f5f5f5;--muted:#b9b9b9;--gold:#d4a62a;--gold2:#ffcf5a}
-    *{box-sizing:border-box} html,body{margin:0;padding:0;background:linear-gradient(180deg,#0b0b0b,#070707);color:var(--text);font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
-    .wrap{max-width:980px;margin:0 auto;padding:42px 18px}
-    .card{border:1px solid rgba(255,255,255,.10);border-radius:18px;background:rgba(255,255,255,.04);padding:22px}
-    .brand{display:flex;gap:12px;align-items:center}
-    .brand img{height:46px}
-    h1{margin:14px 0 8px;font-size:38px;letter-spacing:-.6px}
-    p{margin:0;color:var(--muted);line-height:1.7}
-    a.cta{display:inline-flex;align-items:center;justify-content:center;margin-top:16px;padding:12px 16px;border-radius:12px;background:linear-gradient(135deg,var(--gold),var(--gold2));color:#111;font-weight:900;text-decoration:none}
-    .fine{margin-top:14px;font-size:12px;color:rgba(255,255,255,.6);line-height:1.6}
+    :root{
+      --bg:#0b0b0b;
+      --panel:#101114;
+      --panel2:#0f1012;
+      --text:#f5f5f5;
+      --muted:#b9b9b9;
+      --line:rgba(255,255,255,.10);
+      --gold:#d4a62a;
+      --gold2:#ffcf5a;
+      --radius:16px;
+      --shadow: 0 16px 44px rgba(0,0,0,.55);
+      --max: 1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:radial-gradient(1200px 700px at 20% 0%, rgba(212,166,42,.10), transparent 55%), linear-gradient(180deg,#0b0b0b 0%, #070707 100%);color:var(--text);font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial}
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:var(--max);margin:0 auto;padding:26px 18px 70px}
+    .topbar{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter: blur(10px);
+      background:rgba(11,11,11,.75);
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .topbar-inner{max-width:var(--max);margin:0 auto;padding:12px 18px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand img{height:38px;width:auto;display:block}
+    .brand .name{font-weight:900;letter-spacing:.6px}
+    .right{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+    .pill{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:10px 14px;border:1px solid rgba(255,255,255,.10);
+      border-radius:999px;background:rgba(255,255,255,.04);
+      font-weight:800;
+    }
+    .pill strong{color:var(--gold2)}
+    .cta{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:12px 16px;border-radius:12px;
+      background:linear-gradient(135deg,var(--gold) 0%, var(--gold2) 100%);
+      color:#111;font-weight:900;border:none;
+      box-shadow:0 12px 26px rgba(212,166,42,.22);
+      cursor:pointer;
+    }
+    .cta:active{transform:translateY(1px)}
+    .ghost{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:12px 16px;border-radius:12px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.12);
+      color:var(--text);font-weight:900;
+    }
+
+    .hero{display:grid;grid-template-columns:1.25fr .75fr;gap:14px;align-items:stretch;margin-top:16px}
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border:1px solid rgba(255,255,255,.09);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+    }
+    .hero-left{padding:22px}
+    .kicker{display:inline-flex;gap:10px;align-items:center;color:var(--muted);font-weight:800;font-size:12px;letter-spacing:.7px;text-transform:uppercase}
+    .dot{width:8px;height:8px;border-radius:50%;background:var(--gold)}
+    h1{margin:12px 0 10px;font-size:42px;line-height:1.03;letter-spacing:-.8px}
+    .sub{color:var(--muted);font-size:16px;line-height:1.6;max-width:64ch}
+    .trustbar{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+    .badge{
+      padding:10px 12px;border-radius:12px;background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.08);color:#eaeaea;
+      font-weight:800;font-size:13px;
+    }
+    .badge .star{color:var(--gold2);letter-spacing:1px}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+
+    .hero-right{padding:18px}
+    .form-title{font-weight:950;font-size:18px;margin:6px 0 10px}
+    form{display:grid;gap:10px}
+    label{font-size:12px;color:var(--muted);font-weight:800}
+    input,select,textarea{
+      width:100%;
+      padding:12px 12px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(0,0,0,.25);
+      color:var(--text);
+      outline:none;
+    }
+    textarea{min-height:92px;resize:vertical}
+    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .fine{color:rgba(255,255,255,.65);font-size:12px;line-height:1.45;margin-top:6px}
+
+    .section{margin-top:14px}
+    .section h2{margin:0 0 10px;font-size:22px;letter-spacing:-.2px}
+    .section p{margin:0;color:var(--muted);line-height:1.65}
+
+    .tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px}
+    .tile{padding:14px;border-radius:14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+    .tile .t{font-weight:950;margin-bottom:6px}
+    .tile .d{color:var(--muted);line-height:1.55;font-size:14px}
+
+    .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px}
+    .shot{border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.10);background:#0f0f10}
+    .shot img{display:block;width:100%;height:230px;object-fit:cover}
+    .shot .cap{padding:10px 12px;color:var(--muted);font-size:13px}
+    .statement{
+      margin-top:14px;padding:18px;border-radius:16px;
+      background:linear-gradient(180deg, rgba(212,166,42,.10), rgba(255,255,255,.03));
+      border:1px solid rgba(255,255,255,.10);
+    }
+    .statement h3{margin:0 0 6px;font-size:18px;letter-spacing:-.2px}
+    .statement p{margin:0;color:var(--muted);line-height:1.7}
+
+    .footer{
+      margin-top:14px;padding:16px;border-radius:16px;
+      background:rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.08);
+      display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;
+    }
+    .footer small{color:rgba(255,255,255,.60);line-height:1.45}
+    .mini{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+
+    @media (max-width: 920px){
+      .hero{grid-template-columns:1fr}
+      h1{font-size:34px}
+      .tiles,.gallery{grid-template-columns:1fr}
+      .grid2{grid-template-columns:1fr}
+      .shot img{height:240px}
+    }
   </style>
 </head>
+
 <body>
-  <main class="wrap">
-    <div class="card">
+  <div class="topbar">
+    <div class="topbar-inner">
       <div class="brand">
         <img src="/assets/warrior-logo.png" alt="Warrior AV logo" />
-        <div style="font-weight:950;letter-spacing:.7px">WARRIOR AV</div>
+        <div class="name">WARRIOR AV</div>
       </div>
-      <h1>Premium Audio & Video Experts</h1>
-      <p>For premium TV mounting, clean wire concealment, and refined audio integration, use the upgrade page.</p>
-      <a class="cta" href="/upgrade/">Go to Upgrade Page</a>
-      <div class="fine">Replace the placeholder logo and photos in /assets for best results.</div>
+      <div class="right">
+        <a class="pill" href="#form"><span>Premium consult</span> <strong>fast</strong></a>
+        <a class="cta" href="tel:305-922-4726">Call</a>
+      </div>
     </div>
+  </div>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="card hero-left">
+        <div class="kicker"><span class="dot"></span> Premium audio & video experts • Clean finishes • Precise installs</div>
+        <h1>This wall deserves better.</h1>
+        <p class="sub">
+          Elevate your space with precision TV mounting, invisible wire management, and refined audio integration.
+          Built for homeowners who expect a finished look.
+        </p>
+
+        <div class="trustbar">
+          <div class="badge"><span class="star">★★★★★</span> 5-Star Rated</div>
+          <div class="badge">Clean Architectural Finishes</div>
+          <div class="badge">Fireplace & Frame TV Specialists</div>
+          <div class="badge">Wayland • Weston • Wellesley • Lexington</div>
+        </div>
+
+        <div class="hero-actions">
+          <a class="cta" href="#form">Schedule My Upgrade</a>
+          <a class="ghost" href="#transformations">View Transformations</a>
+          <a class="ghost" href="#what">What’s Included</a>
+        </div>
+
+        <div class="section statement" id="what">
+          <h3>Not just mounted. Engineered.</h3>
+          <p>
+            Warrior AV installs are built around symmetry, safety, and long-term performance.
+            Placement height, alignment, cable routing, and final calibration are treated as one complete system.
+          </p>
+        </div>
+
+        <div class="section" style="margin-top:14px">
+          <h2>What a professional upgrade includes</h2>
+          <div class="tiles">
+            <div class="tile">
+              <div class="t">Precision Mounting</div>
+              <div class="d">Stud-secure installation, exact leveling, placement guidance, and clean alignment.</div>
+            </div>
+            <div class="tile">
+              <div class="t">Invisible Wire Options</div>
+              <div class="d">In-wall concealment where possible, premium raceways, and clean routing standards.</div>
+            </div>
+            <div class="tile">
+              <div class="t">Audio Integration</div>
+              <div class="d">Soundbar/receiver setup, speaker placement, calibration, and final walkthrough.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section" id="transformations">
+          <h2>Transformations</h2>
+          <p>Replace these with real project photos. These are your best sales tool.</p>
+          <div class="gallery">
+            <div class="shot">
+              <img src="/assets/upgrade-1.jpg" alt="Upgrade transformation 1">
+              <div class="cap">Fireplace TV upgrade • clean finish</div>
+            </div>
+            <div class="shot">
+              <img src="/assets/upgrade-2.jpg" alt="Upgrade transformation 2">
+              <div class="cap">Concealed wiring • refined cable management</div>
+            </div>
+            <div class="shot">
+              <img src="/assets/upgrade-3.jpg" alt="Upgrade transformation 3">
+              <div class="cap">Surround sound integration • tuned system</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>Service area</h2>
+          <p>Wayland • Weston • Wellesley • Lexington • Newton • Sudbury • Natick • and nearby towns.</p>
+        </div>
+      </div>
+
+      <aside class="card hero-right" id="form">
+        <div class="form-title">Request a premium consultation</div>
+
+        <form name="warriorav-upgrade" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/upgrade/thanks/">
+          <input type="hidden" name="form-name" value="warriorav-upgrade" />
+          <p style="display:none">
+            <label>Don’t fill this out: <input name="bot-field" /></label>
+          </p>
+
+          <div class="grid2">
+            <div>
+              <label for="name">Name</label>
+              <input id="name" name="name" autocomplete="name" required />
+            </div>
+            <div>
+              <label for="phone">Phone</label>
+              <input id="phone" name="phone" inputmode="tel" autocomplete="tel" required />
+            </div>
+          </div>
+
+          <div class="grid2">
+            <div>
+              <label for="town">Town</label>
+              <input id="town" name="town" placeholder="Wayland / Weston / etc" required />
+            </div>
+            <div>
+              <label for="service">Service needed</label>
+              <select id="service" name="service" required>
+                <option value="" disabled selected>Select one</option>
+                <option>TV Mounting</option>
+                <option>TV Mounting + Wire Concealment</option>
+                <option>Soundbar / Audio Setup</option>
+                <option>Home Theater / Surround Sound</option>
+                <option>Whole-Home Audio</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid2">
+            <div>
+              <label for="size">TV size (inches)</label>
+              <input id="size" name="tv_size" placeholder="55, 65, 75, 85..." />
+            </div>
+            <div>
+              <label for="timing">Timing</label>
+              <select id="timing" name="timing">
+                <option>ASAP</option>
+                <option>This week</option>
+                <option>Next week</option>
+                <option>Flexible</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label for="details">Details</label>
+            <textarea id="details" name="details" placeholder="Fireplace? Brick? Existing cables? Add anything important."></textarea>
+          </div>
+
+          <button class="cta" type="submit">Request Consultation</button>
+
+          <div class="fine">
+            For fastest scheduling, include photos after you submit (text): <strong>305-922-4726</strong><br/>
+            Most installs are scheduled within 3–5 days.
+          </div>
+        </form>
+      </aside>
+    </section>
+
+    <section class="footer">
+      <small>
+        <strong>Warrior AV</strong><br/>
+        Premium Audio & Video Experts • Wayland MA area<br/>
+        © <span id="y"></span> Warrior AV. All rights reserved.
+      </small>
+      <div class="mini">
+        <a class="pill" href="#form">Request Consult</a>
+        <a class="cta" href="tel:305-922-4726">Call</a>
+      </div>
+    </section>
   </main>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
